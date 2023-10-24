@@ -32,7 +32,18 @@ import {AboutUsComponent} from "./page/about-us/about-us.component";
 import {FooterComponent} from "./components/footer/footer.component";
 import {PostCardComponent} from "./components/post-card/post-card.component";
 import {MatInputModule} from "@angular/material/input";
+import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
+import {AngularFireModule} from "@angular/fire/compat";
+import {getFirestore, provideFirestore} from "@angular/fire/firestore";
 
+const firebaseConfig = {
+  apiKey: "AIzaSyDm72R-TE68Do2agAyZ2dicQEByA7T-WzA",
+  authDomain: "ang-blog-4a279.firebaseapp.com",
+  projectId: "ang-blog-4a279",
+  storageBucket: "ang-blog-4a279.appspot.com",
+  messagingSenderId: "493534911624",
+  appId: "1:493534911624:web:c25a4cc19c920f08e6133d"
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +70,9 @@ import {MatInputModule} from "@angular/material/input";
     MatCardModule,
     MatInputModule,
     ReactiveFormsModule,
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    provideFirestore(() => getFirestore()),
   ],
   providers: [],
   bootstrap: [AppComponent]
